@@ -5,6 +5,7 @@ export default [
     {
         files: [
             'src/**/*.@(ts|tsx|js|jsx)',
+            'scripts/**/*.ts',
             'vite.config.ts'
         ],
         languageOptions: {
