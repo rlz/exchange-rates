@@ -925,15 +925,15 @@ export const CURRENCIES: Record<string, {
         code: 'SOS',
         name_plural: 'Somali shillings'
     },
-    SYP: {
-        symbol: 'SY£',
-        name: 'Syrian Pound',
-        symbol_native: 'ل.س.‏',
-        decimal_digits: 0,
-        rounding: 0,
-        code: 'SYP',
-        name_plural: 'Syrian pounds'
-    },
+    // SYP: {
+    //     symbol: 'SY£',
+    //     name: 'Syrian Pound',
+    //     symbol_native: 'ل.س.‏',
+    //     decimal_digits: 0,
+    //     rounding: 0,
+    //     code: 'SYP',
+    //     name_plural: 'Syrian pounds'
+    // },
     TND: {
         symbol: 'DT',
         name: 'Tunisian Dinar',
@@ -1025,15 +1025,15 @@ export const CURRENCIES: Record<string, {
         code: 'UZS',
         name_plural: 'Uzbekistan som'
     },
-    VEF: {
-        symbol: 'Bs.F.',
-        name: 'Venezuelan Bolívar',
-        symbol_native: 'Bs.F.',
-        decimal_digits: 2,
-        rounding: 0,
-        code: 'VEF',
-        name_plural: 'Venezuelan bolívars'
-    },
+    // VEF: {
+    //     symbol: 'Bs.F.',
+    //     name: 'Venezuelan Bolívar',
+    //     symbol_native: 'Bs.F.',
+    //     decimal_digits: 2,
+    //     rounding: 0,
+    //     code: 'VEF',
+    //     name_plural: 'Venezuelan bolívars'
+    // },
     VND: {
         symbol: '₫',
         name: 'Vietnamese Dong',
@@ -1069,16 +1069,16 @@ export const CURRENCIES: Record<string, {
         rounding: 0,
         code: 'YER',
         name_plural: 'Yemeni rials'
-    },
-    ZMK: {
-        symbol: 'ZK',
-        name: 'Zambian Kwacha',
-        symbol_native: 'ZK',
-        decimal_digits: 0,
-        rounding: 0,
-        code: 'ZMK',
-        name_plural: 'Zambian kwachas'
     }
+    // ZMK: {
+    //     symbol: 'ZK',
+    //     name: 'Zambian Kwacha',
+    //     symbol_native: 'ZK',
+    //     decimal_digits: 0,
+    //     rounding: 0,
+    //     code: 'ZMK',
+    //     name_plural: 'Zambian kwachas'
+    // }
     // ZWL: {
     //     symbol: 'ZWL$',
     //     name: 'Zimbabwean Dollar',
