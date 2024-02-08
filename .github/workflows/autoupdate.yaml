@@ -37,8 +37,7 @@ jobs:
           git config --global user.email "maslennikovdm@gmail.com"
           git config --global user.name "Dmitry Maslennikov"
           git add .
-          git commit -m "Automated commit $(date +%Y-%m-%d)"
-          git push
+          git commit -m "Automated commit $(date +%Y-%m-%d)" && git push || true
       - name: Build
         run: npm run build
       - name: Setup Pages
