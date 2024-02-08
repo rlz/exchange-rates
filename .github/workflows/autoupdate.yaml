@@ -1,12 +1,12 @@
-name: Deploy static content to Pages
+name: Update and deploy to Pages
 
 on:
-  push:
-    branches: ['main']
+  schedule:
+    - cron: '23 8 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -30,6 +30,15 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Update rates
+        run: npm run load
+      - name: Commit changes
+        run: |
+          git config --global user.email "maslennikovdm@gmail.com"
+          git config --global user.name "Dmitry Maslennikov"
+          git add .
+          git commit -m "Automated commit $(date +%Y-%m-%d)"
+          git push
       - name: Build
         run: npm run build
       - name: Setup Pages
