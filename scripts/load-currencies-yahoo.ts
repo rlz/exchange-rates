@@ -5,17 +5,13 @@ import z from 'zod'
 import { CURRENCIES } from '../src/currenciesList'
 import { CurrencyRates } from '../src/model'
 
-function clearDate(d: DateTime): DateTime {
-    return d.set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
-}
-
 const notLoad = new Set([
     'USD',
     'HRK' // replaced by euro
 ])
 const currencies = Object.keys(CURRENCIES).filter(i => !notLoad.has(i))
-const startDate = clearDate(DateTime.utc().minus({ month: 6 }))
-const endDate = clearDate(DateTime.utc().minus({ day: 1 }))
+const startDate = DateTime.utc().startOf('day').minus({ month: 6 })
+const endDate = DateTime.utc().startOf('day').minus({ day: 1 })
 
 const IndicatorSchema = z.array(
     z.union([
