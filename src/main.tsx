@@ -168,7 +168,7 @@ function Nav() {
             </div>
             <div>
                 <a
-                    class={url.indexOf('/currencies/') >= 0 ? 'text-amber-700' : 'text-blue-700'}
+                    class={url.indexOf('/currencies') >= 0 ? 'text-amber-700' : 'text-blue-700'}
                     href={baseUrl + 'currencies'}
                 >
                     Currencies
