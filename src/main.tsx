@@ -109,6 +109,7 @@ function Currencies({ currency }: { currency: string }): JSX.Element {
                 />
                 <div class="grow overflow-auto mt-1">
                     {Object.values(CURRENCIES)
+                        .sort((c1, c2) => c1.name.localeCompare(c2.name))
                         .filter((c) => {
                             if (c.code === 'USD') return false
                             if (f === '') return true
