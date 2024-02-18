@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '23 8 * * *'
   workflow_dispatch:
+  push:
+    branges:
+      - main
 
 permissions:
   contents: write
