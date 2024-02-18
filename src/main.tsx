@@ -74,15 +74,27 @@ async function loadRates(currency: string, date: DateTime): Promise<CurrencyRate
     return CURRENCY_RATES_SCHEMA.parse(await resp.json())
 }
 
+function makeEmptyData(): [number[], number[]] {
+    const dates = [
+        DateTime.utc().startOf('day').minus({ day: 30 })
+    ]
+    for (let i = 0; i < 30; ++i) {
+        dates.push(dates[dates.length - 1].plus({ day: 1 }))
+    }
+    return [dates.map(d => d.toSeconds()), []]
+}
+
 function Currencies({ currency }: { currency: string }): JSX.Element {
     const filter = useSignal('')
-    const plotData = useSignal<[number[], number[]] | null>(null)
+    const plotData = useSignal<[number[], number[]]>(makeEmptyData())
 
     const f = filter.value.toLowerCase()
     const currentCur = currency !== '' ? CURRENCIES[currency] : null
 
     useEffect(() => {
         if (currentCur === null) return
+
+        plotData.value = makeEmptyData();
 
         (
             async () => {
@@ -151,7 +163,7 @@ function Currencies({ currency }: { currency: string }): JSX.Element {
                         ? (
                             <>
                                 <h1 class="text-lg text-center">{currentCur.name}</h1>
-                                <Plot data={plotData.value ?? [[], []]} />
+                                <Plot data={plotData.value} />
                             </>
                             )
                         : null
