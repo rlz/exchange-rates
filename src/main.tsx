@@ -3,7 +3,7 @@ import './main.css'
 import Router, { Route, useRouter } from 'preact-router'
 import { CURRENCIES } from './currenciesList'
 import { useSignal } from '@preact/signals'
-import { useEffect, useRef } from 'preact/hooks'
+import { useEffect, useMemo, useRef } from 'preact/hooks'
 import uPlot from 'uplot'
 import 'uplot/dist/uPlot.min.css'
 import { DateTime } from 'luxon'
@@ -13,13 +13,23 @@ const baseUrl = import.meta.env.BASE_URL
 
 function Plot({ data }: { data: [number[], number[]] }): JSX.Element {
     const plotRef = useRef<HTMLDivElement>(null)
+    const uplot = useMemo<{ i: uPlot | null }>(() => {
+        return {
+            i: null
+        }
+    }, [])
+
+    useEffect(() => {
+        if (uplot.i === null) return
+        uplot.i.setData(data)
+    }, [data])
 
     useEffect(() => {
         if (plotRef.current === null) return
 
         const rect = plotRef.current.getBoundingClientRect()
 
-        const uplot = new uPlot(
+        uplot.i = new uPlot(
             {
                 width: rect.width,
                 height: rect.height,
@@ -38,17 +48,18 @@ function Plot({ data }: { data: [number[], number[]] }): JSX.Element {
         )
 
         const resizeObserver = new ResizeObserver((entries) => {
+            if (uplot.i === null) return
             const newRect = entries[0].contentRect
-            uplot.setSize({ width: newRect.width, height: newRect.height })
+            uplot.i.setSize({ width: newRect.width, height: newRect.height })
         })
 
         resizeObserver.observe(plotRef.current)
 
         return () => {
             resizeObserver.disconnect()
-            uplot.destroy()
+            uplot.i?.destroy()
         }
-    }, [plotRef, data])
+    }, [plotRef])
 
     return <div ref={plotRef} class="h-52 w-auto" />
 }
@@ -71,6 +82,8 @@ function Currencies({ currency }: { currency: string }): JSX.Element {
     const currentCur = currency !== '' ? CURRENCIES[currency] : null
 
     useEffect(() => {
+        if (currentCur === null) return
+
         (
             async () => {
                 const today = DateTime.utc().startOf('day')
