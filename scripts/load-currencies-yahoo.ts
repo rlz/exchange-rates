@@ -139,9 +139,9 @@ async function storeCurrency(currency: string, from: DateTime, to: DateTime): Pr
         const year = m.toFormat('yyyy')
         const month = m.toFormat('LL')
 
-        mkdirSync(`./public/currencies/${year}/${month}`, { recursive: true })
+        mkdirSync(`./public/rates/${year}/${month}`, { recursive: true })
 
-        writeFileSync(`./public/currencies/${year}/${month}/${currency}.json`, JSON.stringify(r))
+        writeFileSync(`./public/rates/${year}/${month}/${currency}.json`, JSON.stringify(r))
     }
 }
 

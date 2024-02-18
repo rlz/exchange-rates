@@ -54,7 +54,7 @@ function Plot({ data }: { data: [number[], number[]] }): JSX.Element {
 }
 
 async function loadRates(currency: string, date: DateTime): Promise<CurrencyRates> {
-    const resp = await fetch(`${baseUrl}currencies/${date.toFormat('yyyy')}/${date.toFormat('LL')}/${currency}.json`)
+    const resp = await fetch(`${baseUrl}rates/${date.toFormat('yyyy')}/${date.toFormat('LL')}/${currency}.json`)
 
     if (!resp.ok) {
         throw Error(`Can not load rates for ${currency} ${date.toFormat('yyyy-LL')}`)
