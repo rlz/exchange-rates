@@ -10,6 +10,8 @@ Use GET request to `http://rlz.github.io/exchange-rates/rates/{year}/{month}/{cu
 
 Rates field is an array of rates always starting from the first day of month. If month is the current month array can only available data and be shorter than number of days in the month.
 
+You can see list of available currencies on [currencies](https://rlz.github.io/exchange-rates/currencies) page.
+
 ## Example
 
 ```console

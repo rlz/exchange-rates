@@ -9,16 +9,24 @@
         @apply text-cyan-800;
     }
 
+    h1 {
+        @apply text-2xl text-cyan-900;
+    }
+
     h2 {
-        @apply text-lg mt-3 mb-1 text-cyan-900;
+        @apply text-xl mt-4 mb-2 text-cyan-900;
     }
 
     p {
-        @apply my-1;
+        @apply my-2;
     }
 
     pre {
-        @apply p-1 text-wrap border-neutral-900 border rounded bg-neutral-100;
+        @apply p-4 overflow-auto border-neutral-900 border rounded bg-neutral-100;
+
+        .command {
+            @apply text-cyan-800;
+        }
     }
 
     a {
