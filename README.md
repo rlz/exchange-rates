@@ -1,29 +1,24 @@
-Exchange Rates README
-=====================
+# Exchange Rates README
 
-Overview:
----------
+## Overview
 
-Exchange Rates is an open-source project that provides daily exchange rates for various currencies. These rates are stored and made available via GitHub Pages, allowing easy access for developers and users alike. Additionally, a JavaScript/TypeScript library is provided to access these exchange rates from other projects, facilitating seamless integration into web applications.
+Exchange Rates is an open-source project that provides daily exchange rates for various currencies. These rates are stored and made available via GitHub Pages, allowing easy access for developers and users alike.
 
-Features:
----------
+## Usage
 
-- Daily exchange rates: The project stores up-to-date exchange rates for a wide range of currencies.
-- GitHub Pages hosting: Exchange rates are made accessible through GitHub Pages, ensuring reliable and scalable access.
-- JavaScript/TypeScript library: A library is provided to allow developers to easily access exchange rates from their projects.
-- Browser caching: The library includes caching mechanisms to reduce network traffic and improve performance by storing exchange rate information in the browser.
+Use GET request to `http://rlz.github.io/exchange-rates/rates/{year}/{month}/{currency}.json` to get JSON object back with `month`, `currency` and `rates` field.
 
-Usage:
-------
+Rates field is an array of rates always starting from the first day of month. If month is the current month array can only available data and be shorter than number of days in the month.
 
-```javascript
+## Example
 
-// TBD
+```console
+
+$ curl https://rlz.github.io/exchange-rates/rates/2024/01/RUB.json 
+{"month":"2024-01","currency":"RUB","rates":[89.21499633789062,89.21499633789062,90.3949966430664,91.96499633789062,91.31500244140625,91.31500244140625,91.31500244140625,90.8949966430664,90.8949966430664,90.8949966430664,90.88999938964844,89.88999938964844,89.88999938964844,89.88999938964844,89.88999938964844,89.88999938964844,87.94999694824219,88.62000274658203,88.62000274658203,88.62000274658203,88.62000274658203,89.41999816894531,87.98999786376953,87.98999786376953,88.69000244140625,88,88,88,88,89.2699966430664,89.73999786376953]}
 
 ```
 
-License:
---------
+## License
 
 This project is licensed under the ISC License. See the LICENSE.txt file for more details.

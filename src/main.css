@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.docs {
+    max-width: 600pt;
+
+    i {
+        @apply text-cyan-800;
+    }
+
+    h2 {
+        @apply text-lg mt-3 mb-1 text-cyan-900;
+    }
+
+    p {
+        @apply my-1;
+    }
+
+    pre {
+        @apply p-1 text-wrap border-neutral-900 border rounded bg-neutral-100;
+    }
+
+    a {
+        @apply underline text-cyan-800;
+    }
+}
