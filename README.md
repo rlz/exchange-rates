@@ -8,7 +8,7 @@ Exchange Rates is an open-source project that provides daily exchange rates for 
 
 Use GET request to `http://rlz.github.io/exchange-rates/rates/{year}/{month}/{currency}.json` to get JSON object back with `month`, `currency` and `rates` field.
 
-Rates field is an array of rates always starting from the first day of month. If month is the current month array can only available data and be shorter than number of days in the month.
+The `rates` field is an array of exchange rates from the currency to USD always starting from the first day of month. If month is the current month array can only available data and be shorter than number of days in the month.
 
 You can see list of available currencies on [currencies](https://rlz.github.io/exchange-rates/currencies) page.
 
