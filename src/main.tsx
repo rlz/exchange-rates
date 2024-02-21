@@ -11,11 +11,11 @@ function Nav() {
     const [{ url }] = useRouter()
 
     return (
-        <nav class="flex p-2 items-baseline">
-            <h1 class="text-xl grow text-ellipsis overflow-hidden text-nowrap">Exchange Rates</h1>
+        <nav class="flex p-3 items-baseline bg-neutral-50 border-cyan-900 border">
+            <h1 class="text-xl font-bold grow text-ellipsis overflow-hidden text-nowrap text-cyan-800">Exchange Rates</h1>
             <div class="px-2">
                 <a
-                    class={url === baseUrl ? 'text-amber-700' : 'text-blue-700'}
+                    class={url === baseUrl ? 'text-amber-900' : 'text-cyan-900'}
                     href={baseUrl}
                 >
                     Docs
@@ -23,7 +23,7 @@ function Nav() {
             </div>
             <div>
                 <a
-                    class={url.indexOf('/currencies') >= 0 ? 'text-amber-700' : 'text-blue-700'}
+                    class={url.indexOf('/currencies') >= 0 ? 'text-amber-900' : 'text-cyan-900'}
                     href={baseUrl + 'currencies'}
                 >
                     Currencies
@@ -44,7 +44,7 @@ function App() {
             <div class="p-2 text-center">
                 &copy; Dmitry Maslennikov, Project on
                 {' '}
-                <a class="text-blue-700" href="https://github.com/rlz/exchange-rates">GitHub</a>
+                <a class="underline text-cyan-800" href="https://github.com/rlz/exchange-rates">GitHub</a>
             </div>
         </div>
     )

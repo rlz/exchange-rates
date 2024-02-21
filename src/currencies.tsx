@@ -69,7 +69,7 @@ export function Currencies({ currency }: { currency: string }): JSX.Element {
 
     return (
         <div class="grow flex basis-0 min-h-0">
-            <div class="p-1 flex flex-col">
+            <div class="p-2 flex flex-col">
                 <input
                     class="border rounded border-solid border-slate-500 p-1 w-full"
                     placeholder="Filter..."
