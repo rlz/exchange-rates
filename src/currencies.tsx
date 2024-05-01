@@ -9,6 +9,7 @@ import { JSX } from 'preact/jsx-runtime'
 const baseUrl = import.meta.env.BASE_URL
 
 async function loadRates(currency: string, date: DateTime): Promise<CurrencyRates> {
+    // const baseUrl = 'https://rlz.github.io/exchange-rates/'
     const resp = await fetch(`${baseUrl}rates/${date.toFormat('yyyy')}/${date.toFormat('LL')}/${currency}.json`)
 
     if (!resp.ok) {
@@ -45,12 +46,25 @@ export function Currencies({ currency }: { currency: string }): JSX.Element {
                 const today = DateTime.utc().startOf('day')
                 const startDate = today.minus({ days: 30 })
 
-                const tasks: Promise<CurrencyRates>[] = [
-                    loadRates(currency, startDate)
-                ]
+                const tasks: Promise<CurrencyRates>[] = [loadRates(currency, startDate)]
 
                 if (today.month !== startDate.month) {
-                    tasks.push(loadRates(currency, today))
+                    tasks.push(
+                        (async () => {
+                            try {
+                                return await loadRates(currency, today)
+                            }
+                            catch (e) {
+                                console.log(`Current month load fail (too early?):`, e)
+
+                                return {
+                                    month: 'yyyy-LL',
+                                    currency,
+                                    rates: []
+                                }
+                            }
+                        })()
+                    )
                 }
 
                 const loadedRates = (await Promise.all(tasks)).flatMap(i => i.rates).slice(startDate.day - 1)
