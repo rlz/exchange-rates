@@ -119,10 +119,10 @@ export function Currencies({ currency }: { currency: string }): JSX.Element {
                 {
                     currentCur !== null
                         ? (
-                            <>
-                                <h1 class="text-lg text-center">{currentCur.name}</h1>
-                                <Plot data={plotData.value} />
-                            </>
+                                <>
+                                    <h1 class="text-lg text-center">{currentCur.name}</h1>
+                                    <Plot data={plotData.value} />
+                                </>
                             )
                         : null
                 }

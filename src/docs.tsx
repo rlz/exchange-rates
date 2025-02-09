@@ -50,8 +50,8 @@ export function Docs(): JSX.Element {
                 <pre>
                     <div class="command">$ curl https://rlz.github.io/exchange-rates/rates/2024/01/RUB.json</div>
                     {
-                    '{"month":"2024-01","currency":"RUB","rates":[89.21499633789062,89.21499633789062,<...>,89.73999786376953]}'
-                }
+                        '{"month":"2024-01","currency":"RUB","rates":[89.21499633789062,89.21499633789062,<...>,89.73999786376953]}'
+                    }
                 </pre>
                 <h2>License</h2>
                 <p>
