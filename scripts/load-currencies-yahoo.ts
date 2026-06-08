@@ -1,9 +1,10 @@
-import { mkdirSync, writeFileSync } from 'fs'
 import { DateTime } from 'luxon'
 import z from 'zod'
 
-import { CURRENCIES } from '../src/currenciesList'
-import { CurrencyRates } from '../src/model'
+import { CURRENCIES } from '../src/currenciesList.ts'
+import { CurrencyRates } from '../src/model.ts'
+import { mkdirSync } from 'fs'
+import { writeFileSync } from 'fs'
 
 const notLoad = new Set([
     'USD',
@@ -68,7 +69,7 @@ async function callYahoo(currency: string, from: DateTime, to: DateTime): Promis
     const rates = YahooRespSchema.safeParse(body)
 
     if (!rates.success) {
-        throw Error(`Can not parse Yahoo reply (${currency} ${from.toISO()} ${to.toISO()})\n---\n${JSON.stringify(body, undefined, 2)}`)
+        throw Error(`Can not parse Yahoo reply (${currency} ${from.toISO()} ${to.toISO()})\n---${rates.error}\n---\n${JSON.stringify(body, undefined, 2)}`)
     }
 
     return rates.data.chart.result[0]

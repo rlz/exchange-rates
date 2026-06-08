@@ -1,9 +1,9 @@
 import { render } from 'preact'
 import './main.css'
-import Router, { Route, useRouter } from 'preact-router'
+import { Router, Route, useRouter } from 'preact-router'
 import 'uplot/dist/uPlot.min.css'
-import { Docs } from './docs'
-import { Currencies } from './currencies'
+import { Docs } from './docs.tsx'
+import { Currencies } from './currencies.tsx'
 
 const baseUrl = import.meta.env.BASE_URL
 

@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon'
-import { CURRENCY_RATES_SCHEMA, CurrencyRates } from './model'
+import { CURRENCY_RATES_SCHEMA, CurrencyRates } from './model.ts'
 import { useSignal } from '@preact/signals'
-import { CURRENCIES } from './currenciesList'
+import { CURRENCIES } from './currenciesList.ts'
 import { useEffect } from 'preact/hooks'
-import { Plot } from './plot'
+import { Plot } from './plot.tsx'
 import { JSX } from 'preact/jsx-runtime'
 
 const baseUrl = import.meta.env.BASE_URL
