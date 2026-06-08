@@ -736,15 +736,15 @@ export const CURRENCIES: Record<string, {
         code: 'MKD',
         name_plural: 'Macedonian denari'
     },
-    MMK: {
-        symbol: 'MMK',
-        name: 'Myanma Kyat',
-        symbol_native: 'K',
-        decimal_digits: 0,
-        rounding: 0,
-        code: 'MMK',
-        name_plural: 'Myanma kyats'
-    },
+    // MMK: {
+    //     symbol: 'MMK',
+    //     name: 'Myanma Kyat',
+    //     symbol_native: 'K',
+    //     decimal_digits: 0,
+    //     rounding: 0,
+    //     code: 'MMK',
+    //     name_plural: 'Myanma kyats'
+    // },
     MOP: {
         symbol: 'MOP$',
         name: 'Macanese Pataca',
