@@ -317,15 +317,16 @@ export const CURRENCIES: Record<string, {
         code: 'BDT',
         name_plural: 'Bangladeshi takas'
     },
-    BGN: {
-        symbol: 'BGN',
-        name: 'Bulgarian Lev',
-        symbol_native: 'лв.',
-        decimal_digits: 2,
-        rounding: 0,
-        code: 'BGN',
-        name_plural: 'Bulgarian leva'
-    },
+    // BGN is not used anymore
+    // BGN: {
+    //     symbol: 'BGN',
+    //     name: 'Bulgarian Lev',
+    //     symbol_native: 'лв.',
+    //     decimal_digits: 2,
+    //     rounding: 0,
+    //     code: 'BGN',
+    //     name_plural: 'Bulgarian leva'
+    // },
     BHD: {
         symbol: 'BD',
         name: 'Bahraini Dinar',
